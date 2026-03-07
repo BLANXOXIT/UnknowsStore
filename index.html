@@ -1,493 +1,477 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnknowsStore — Valorant & Cs2 Cheats, Spoofers , Cleaner , etc.. </title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background-color: #000000;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            color: #ffffff;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+<title>Unknown Store</title>
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-        /* Header with image and title */
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin: 40px 0 20px;
-        }
+<style>
 
-        .title-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            object-fit: cover;
-            border: 2px solid #4f46e5;
-            box-shadow: 0 20px 30px -10px rgba(79, 70, 229, 0.3);
-        }
-
-        .title-text {
-            font-size: 4rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Main Banner Image */
-        .banner-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 32px;
-            margin: 30px 0;
-            border: 2px solid #4f46e5;
-            box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.3);
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 2em 0 0.5em;
-            border-bottom: 2px solid #4f46e5;
-            padding-bottom: 15px;
-            display: inline-block;
-        }
-
-        .eyebrow {
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #4f46e5;
-            margin-bottom: 0.5rem;
-        }
-
-        .lead {
-            font-size: 1.3rem;
-            color: #c0c0c0;
-            max-width: 700px;
-            margin-bottom: 3rem;
-            background: #111111;
-            padding: 20px 30px;
-            border-radius: 60px;
-            border-left: 4px solid #4f46e5;
-        }
-
-        /* Status Cards - Black with borders */
-        .status-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .status-card {
-            background: #111111;
-            border: 2px solid #2a2a2a;
-            border-radius: 32px;
-            padding: 32px;
-            transition: all 0.25s ease;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .status-card:hover {
-            border-color: #4f46e5;
-            transform: translateY(-8px);
-            box-shadow: 0 35px 60px -15px rgba(79, 70, 229, 0.4);
-        }
-
-        .status-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #4f46e5;
-            margin-bottom: 1rem;
-        }
-
-        .status-value {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1;
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-
-        .status-meta {
-            font-size: 1rem;
-            color: #a0a0a0;
-            border-top: 2px solid #2a2a2a;
-            padding-top: 1.2rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* Product Cards - Black with borders */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .product-card {
-            background: #111111;
-            border: 2px solid #2a2a2a;
-            border-radius: 32px;
-            padding: 32px;
-            transition: all 0.2s;
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .product-card:hover {
-            border-color: #4f46e5;
-            box-shadow: 0 30px 60px -15px rgba(79, 70, 229, 0.4);
-        }
-
-        .product-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            background: #2a2a2a;
-            color: #c0c0c0;
-            margin-bottom: 1.5rem;
-        }
-
-        .badge-popular {
-            background: #4f46e5;
-            color: #ffffff;
-        }
-
-        .product-card h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #ffffff;
-        }
-
-        .product-desc {
-            color: #a0a0a0;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-.product-card h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    /* Gradient from white to purple */
-    background: linear-gradient(135deg, #ffffff 0%, #4f46e5 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Orbitron;
 }
-        .btn-access {
-            display: inline-flex;
-            align-items: center;
-            background: #4f46e5;
-            color: #ffffff;
-            font-weight: 600;
-            padding: 0.9rem 2.2rem;
-            border-radius: 60px;
-            text-decoration: none;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            width: 100%;
-            justify-content: center;
-        }
 
-        .btn-access:hover {
-            background: #7c3aed;
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px -5px #4f46e5;
-        }
+body{
+background:#06030d;
+color:white;
+overflow-x:hidden;
+}
 
-        /* Review Cards */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 50px 0;
-        }
+/* NAVBAR */
 
-        .review-card {
-            background: #111111;
-            border: 2px solid #2a2a2a;
-            border-radius: 32px;
-            padding: 32px;
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
-        }
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+background:rgba(20,0,40,.6);
+backdrop-filter:blur(10px);
+z-index:10;
+}
 
-        .review-text {
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
+nav a{
+color:#cda6ff;
+margin-left:25px;
+text-decoration:none;
+opacity:.7;
+transition:.3s;
+}
 
-        .review-text::before {
-            content: "“";
-            font-size: 2rem;
-            color: #4f46e5;
-            opacity: 0.8;
-            margin-right: 2px;
-        }
+nav a:hover{
+opacity:1;
+color:white;
+}
 
-        .review-author {
-            font-weight: 700;
-            color: #ffffff;
-        }
+/* HERO */
 
-        .review-product {
-            font-size: 0.85rem;
-            color: #8f8f9e;
-            margin-top: 4px;
-        }
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
 
-        /* Stats Banner */
-        .stats-banner {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            background: #111111;
-            border: 2px solid #4f46e5;
-            border-radius: 60px;
-            padding: 50px 40px;
-            margin: 70px 0;
-        }
+.hero h1{
 
-        .stat-item {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 0.3rem;
-            background: linear-gradient(135deg, #ffffff 0%, #4f46e5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+font-size:80px;
 
-        .stat-label {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #a5b4fc;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+background:linear-gradient(
+90deg,
+#8b2cff,
+#e0b3ff,
+#8b2cff
+);
 
-        /* FAQ Grid */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px 60px;
-            margin: 50px 0;
-        }
+background-size:200%;
 
-        .faq-item {
-            background: #111111;
-            border: 2px solid #2a2a2a;
-            border-radius: 32px;
-            padding: 30px;
-            transition: border 0.2s;
-        }
+-webkit-background-clip:text;
+color:transparent;
 
-        .faq-item:hover {
-            border-color: #4f46e5;
-        }
+animation:gradient 4s linear infinite;
 
-        .faq-question {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+text-shadow:
+0 0 20px #8b2cff,
+0 0 50px #8b2cff;
 
-        .faq-question::after {
-            content: "＋";
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: #4f46e5;
-        }
+}
 
-        .faq-answer {
-            color: #c0c0c0;
-            line-height: 1.7;
-        }
+@keyframes gradient{
+0%{background-position:0%}
+100%{background-position:200%}
+}
 
-        footer {
-            text-align: center;
-            padding: 50px 0 70px;
-            color: #8f8f9e;
-            border-top: 2px solid #2a2a2a;
-            margin-top: 60px;
-            font-size: 0.95rem;
-        }
+.hero p{
+margin-top:15px;
+opacity:.7;
+letter-spacing:2px;
+color:#d9baff;
+}
 
-        .discord-invite {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background: #111111;
-            border: 2px solid #4f46e5;
-            border-radius: 60px;
-        }
+.btn{
+margin-top:35px;
+padding:14px 40px;
+border-radius:40px;
+background:linear-gradient(90deg,#7a29ff,#c27cff);
+text-decoration:none;
+color:white;
+transition:.3s;
+}
 
-        .discord-invite a {
-            color: #4f46e5;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px #8b2cff;
+}
 
-        .discord-invite a:hover {
-            text-decoration: underline;
-        }
+/* BACKGROUND GLOW FIX */
 
-        @media (max-width: 1000px) {
-            .status-grid, .product-grid, .reviews-grid, .stats-banner {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .title-text { font-size: 3rem; }
-        }
+body::before,
+body::after{
 
-        @media (max-width: 700px) {
-            .status-grid, .product-grid, .reviews-grid, .stats-banner, .faq-grid {
-                grid-template-columns: 1fr;
-            }
-            .container { padding: 0 20px; }
-            .header { flex-direction: column; text-align: center; }
-        }
-    </style>
+content:"";
+position:fixed;
+
+width:900px;
+height:900px;
+
+filter:blur(120px);
+
+z-index:-1;
+
+}
+
+body::before{
+background:radial-gradient(circle,#7a29ff55,transparent 70%);
+top:-300px;
+left:-300px;
+}
+
+body::after{
+background:radial-gradient(circle,#c27cff55,transparent 70%);
+bottom:-300px;
+right:-300px;
+}
+
+/* STATS */
+
+.stats{
+
+display:flex;
+justify-content:center;
+margin-top:-120px;
+margin-bottom:120px;
+
+}
+
+.stats-box{
+
+display:flex;
+gap:120px;
+
+background:#05050a;
+
+padding:40px 80px;
+
+border-radius:80px;
+
+border:2px solid #6b2cff;
+
+box-shadow:0 0 25px rgba(120,50,255,.4);
+
+}
+
+.stat{
+text-align:center;
+}
+
+.stat h2{
+font-size:40px;
+color:#d6ccff;
+}
+
+.stat p{
+margin-top:5px;
+font-size:14px;
+letter-spacing:2px;
+color:#8f7fff;
+}
+
+/* SECTION */
+
+section{
+padding:120px 80px;
+}
+
+.section-title{
+font-size:45px;
+margin-bottom:20px;
+text-align:center;
+color:#d4a9ff;
+text-shadow:0 0 15px #8b2cff;
+}
+
+.status-sub{
+text-align:center;
+opacity:.6;
+margin-bottom:60px;
+}
+
+/* STATUS GRID */
+
+.status-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+}
+
+.status-card{
+
+background:#0a0715;
+
+border-radius:18px;
+
+padding:35px;
+
+border:1px solid rgba(200,120,255,.2);
+
+box-shadow:0 0 30px rgba(140,0,255,.2);
+
+transition:.3s;
+
+text-decoration:none;
+
+color:white;
+
+display:block;
+
+}
+
+.status-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 40px rgba(160,0,255,.6);
+
+}
+
+.status-card h4{
+letter-spacing:2px;
+opacity:.6;
+margin-bottom:20px;
+}
+
+.status-green{
+color:#00ff9c;
+font-weight:700;
+font-size:22px;
+text-shadow:0 0 10px #00ff9c;
+margin-bottom:20px;
+}
+
+.status-card ul{
+list-style:none;
+}
+
+.status-card li{
+
+display:flex;
+justify-content:space-between;
+
+padding:10px 0;
+
+opacity:.8;
+
+border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+.status-card span{
+color:white;
+}
+
+/* COMMUNITY */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:rgba(80,0,120,0.15);
+
+padding:30px;
+
+border-radius:15px;
+
+border:1px solid rgba(180,120,255,0.2);
+
+transition:.3s;
+
+text-align:center;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 20px rgba(160,80,255,0.6);
+
+}
+
+.card a{
+color:#d6a8ff;
+text-decoration:none;
+display:block;
+margin-top:10px;
+}
+
+.card a:hover{
+color:white;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px;
+opacity:.5;
+color:#bfa2ff;
+}
+
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Header with Image/Title Combo - REPLACED WITH REAL IMAGE URL -->
-        <div class="header">
-            <!-- Title image from Unsplash (technology/abstract logo style) -->
-            <img class="title-image" src="https://i.pinimg.com/736x/7e/fb/0c/7efb0c9cea2257df08f4268ee2004b94.jpg" alt="UnknowsStore Logo">
-            <div class="title-text">UnknowsStore</div>
-    
 
-        <!-- Discord Invite Banner -->
-        <div class="discord-invite">
-            🔗 Join our community: <a href="https://discord.gg/8EJWbqSFMV" target="_blank">https://discord.gg/8EJWbqSFMV</a>
-        </div>
+<header>
 
-    
+<h3>UnknownStore</h3>
 
-        <h2>Elite Collection</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <span class="product-badge">new</span>
-                <h3>CS2 UNLOCK ALL</h3>
-                <div class="product-desc">Cs2 Skin Unlock All, Secure & fast.</div>
-                <a href="https://discord.gg/8EJWbqSFMV" target="_blank" class="btn-access">access →</a>
-            </div>
-            <div class="product-card">
-                <span class="product-badge">stealth</span>
-                <h3>VANISH</h3>
-                <div class="product-desc">Advanced HWID Spoofing Without AMIDEWIN/EFI/SYS. .</div>
-                <a href="https://discord.gg/8EJWbqSFMV" target="_blank" class="btn-access">access →</a>
-            </div>
-            <div class="product-card">
-                <span class="product-badge popular">popular</span>
-                <h3>TRACE</h3>
-                <div class="product-desc">Premium Tracing & Detection Bypass.</div>
-                <a href="https://discord.gg/8EJWbqSFMV" target="_blank" class="btn-access">access →</a>
-            </div>
-            <div class="product-card">
-                <span class="product-badge">premium</span>
-                 <h3>INTERNAL</h3>
-                <div class="product-desc">Advanced Cheat Suite with Visuals & More.</div>
-                <a href="https://discord.gg/8EJWbqSFMV" target="_blank" class="btn-access">access →</a>
-            </div>
-            <div class="product-card">
-                <span class="product-badge">compat</span>
-                <h3>VGK EMULATOR</h3>
-                <div class="product-desc">Advanced Vanguard Emulator & Bypass Solution.</div>
-                <a href="https://discord.gg/8EJWbqSFMV" target="_blank" class="btn-access">access →</a>
-            </div>
-            <div class="product-card">
-                <span class="product-badge">elite</span>
-                <h3>TRACE X</h3>
-                <div class="product-desc">Premium Emulator with 152 Bypass & Advanced Features.</div>
-                <a href="https://discord.gg/8EJWbqSFMV" target="_blank" class="btn-access">access →</a>
-            </div>
-        </div>
+<nav>
+<a href="#home">Home</a>
+<a href="#status">Status</a>
+<a href="#community">Community</a>
+</nav>
 
+</header>
 
+<div class="hero" id="home">
 
-        <div class="stats-banner">
-            <div><div class="stat-item">15k+</div><div class="stat-label">active users</div></div>
-            <div><div class="stat-item">99.9%</div><div class="stat-label">uptime</div></div>
-            <div><div class="stat-item">100%</div><div class="stat-label">success rate</div></div>
-            <div><div class="stat-item">24/7</div><div class="stat-label">support</div></div>
-        </div>
+<h1>UNKNOWN STORE</h1>
 
-        <h2>frequently asked questions</h2>
-        <div class="faq-grid">
-            <div class="faq-item">
-                <div class="faq-question">What systems are supported?</div>
-                <div class="faq-answer">Windows 10 & 11 (all versions), both AMD and Intel. Some products have additional requirements listed in the details.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">How do I purchase?</div>
-                <div class="faq-answer">Click “access” on any product to see pricing. Purchase directly on our secure site – support available 24/7.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Is it safe?</div>
-                <div class="faq-answer">All products are thoroughly tested and certified. We continuously update for compatibility and safety.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Refund policy?</div>
-                <div class="faq-answer">Short‑term licenses (1‑7 days) are non‑refundable. Longer licenses may be eligible within 48h – contact support.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Update frequency?</div>
-                <div class="faq-answer">Regular updates + critical fixes within 24h. All updates free during active license.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">If something breaks?</div>
-                <div class="faq-answer">We monitor 24/7 and fix immediately. License holders get downtime compensation (extra days).</div>
-            </div>
-        </div>
+<p>TOOLS • COMMUNITY • RESOURCES</p>
 
-        <footer>
-            UnknowsStore performance systems — designed for speed, built for trust
-        </footer>
-    </div>
+<a class="btn" href="#status">ENTER</a>
+
+</div>
+
+<section class="stats">
+
+<div class="stats-box">
+
+<div class="stat">
+<h2>15k+</h2>
+<p>ACTIVE USERS</p>
+</div>
+
+<div class="stat">
+<h2>99.9%</h2>
+<p>UPTIME</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>SUCCESS RATE</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>SUPPORT</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="status">
+
+<h2 class="section-title">System Status</h2>
+
+<p class="status-sub">
+Real-time Detection Status & Performance Metrics
+</p>
+
+<div class="status-grid">
+
+<a href="https://discord.gg/8EJWbqSFMV" class="status-card">
+
+<h4>BYPASS STATUS</h4>
+
+<div class="status-green">● UNDETECTED</div>
+
+<ul>
+<li>Uptime <span>99.9%</span></li>
+<li>Last Updated <span>2 min ago</span></li>
+<li>Success Rate <span>100%</span></li>
+</ul>
+
+</a>
+
+<a href="https://discord.gg/8EJWbqSFMV" class="status-card">
+
+<h4>HWID STATUS</h4>
+
+<div class="status-green">● UNDETECTED</div>
+
+<ul>
+<li>Spoof Count <span>3,247</span></li>
+<li>Detection Rate <span>0%</span></li>
+<li>Active Sessions <span>1,247</span></li>
+</ul>
+
+</a>
+
+<a href="https://discord.gg/8EJWbqSFMV" class="status-card">
+
+<h4>VISUAL / ENGINE</h4>
+
+<div class="status-green">● UNDETECTED</div>
+
+<ul>
+<li>FPS Impact <span>&lt;1%</span></li>
+<li>CPU Usage <span>Low</span></li>
+<li>Memory <span>Minimal</span></li>
+</ul>
+
+</a>
+
+</div>
+
+</section>
+
+<section id="community">
+
+<h2 class="section-title">Community</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Discord</h3>
+<p>Join the community</p>
+<a href="https://discord.gg/8EJWbqSFMV">Join Server</a>
+</div>
+
+<div class="card">
+<h3>TikTok</h3>
+<p>Follow updates</p>
+<a href="https://www.tiktok.com/@blanco.aepp">Open TikTok</a>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+Unknown Store © 2026
+</footer>
+
 </body>
 </html>
+```
