@@ -536,6 +536,31 @@ color:white;
     color: #b09aff;
 }
 
+.features h5 {
+    color: #d4a9ff;
+    margin: 20px 0 10px 0;
+    font-size: 16px;
+}
+
+.features ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.features li {
+    color: #b09aff;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.features li::before {
+    content: "•";
+    color: #8b2cff;
+    font-weight: bold;
+    display: inline-block;
+    width: 20px;
+}
+
 /* PRICING TABLE */
 .pricing-table {
     margin: 40px 0;
@@ -849,28 +874,28 @@ Real-time Detection Status & Performance Metrics
         <button class="product-access-btn" onclick="openModal('CS2 CHEAT')">ACCESS</button>
     </div>
 
-    <!-- TRACE -->
-    <div class="product-card" data-product="trace">
+    <!-- CS2 UNLOCK ALL -->
+    <div class="product-card" data-product="cs2unlock">
         <span class="product-badge">PREMIUM</span>
-        <h3>CS2 UNLOCKALL</h3>
-        <div class="product-desc">Premium Cs2 Skins Unlock All</div>
+        <h3>CS2 UNLOCK ALL</h3>
+        <div class="product-desc">Unlock all skins in the game</div>
         <div class="product-price-row">
             <span class="price-label">STARTING AT</span>
             <span class="price-value">$3.00</span>
         </div>
-        <button class="product-access-btn" onclick="openModal('TRACE')">ACCESS</button>
-    </div>
+        <button class="product-access-btn" onclick="openModal('CS2 UNLOCK ALL')">ACCESS</button>
+    </div>    
 
-    <!-- INTERNAL -->
+    <!-- INTERNAL VALORANT -->
     <div class="product-card" data-product="internal">
         <span class="product-badge premium">PREMIUM</span>
         <h3>INTERNAL VALORANT</h3>
-        <div class="product-desc">Advanced Cheat Suite with Visuals & More.</div>
+        <div class="product-desc">Advanced Cheat Suite with Customizable Aim & Visuals</div>
         <div class="product-price-row">
             <span class="price-label">STARTING AT</span>
-            <span class="price-value">$20.00</span>
+            <span class="price-value">$50.00</span>
         </div>
-        <button class="product-access-btn" onclick="openModal('INTERNAL')">ACCESS</button>
+        <button class="product-access-btn" onclick="openModal('INTERNAL VALORANT')">ACCESS</button>
     </div>
 
     <!-- VGK EMULATOR -->
@@ -917,49 +942,10 @@ Real-time Detection Status & Performance Metrics
             </ul>
         </div>
 
-        <!-- Features -->
-        <!-- Features -->
-<div class="features">
-  <h4>FEATURES</h4>
-  <p>You can view the features of <span id="featureProductName">CS2 External ESP</span> on our website.</p>
-
-  <h5>ESP Features</h5>
-  <ul>
-    <li>Box & Skeleton ESP</li>
-    <li>Health, Distance, and Rainbow color options</li>
-    <li>Hide application</li>
-    <li>Tracer lines</li>
-    <li>Information display options</li>
-    <li>Custom health bar</li>
-    <li>Bomb timer</li>
-    <li>Spectator list</li>
-    <li>Sniper crosshair</li>
-    <li>Ability to hide overlay from screen capture</li>
-  </ul>
-
-  <h5>Triggerbot Features</h5>
-  <ul>
-    <li>All keybind support</li>
-    <li>Custom delay setting</li>
-    <li>Custom duration setting</li>
-    <li>Team check</li>
-  </ul>
-
-  <h5>General Features</h5>
-  <ul>
-    <li>3 different profile options</li>
-    <li>Easy-to-use web UI</li>
-    <li>Private Kernel Mode driver</li>
-    <li>Easy setup</li>
-  </ul>
-
-  <h5>Pricing</h5>
-  <ul>
-    <li>1 Day: $3</li>
-    <li>7 Days: $14</li>
-    <li>30 Days: $28</li>
-  </ul>
-</div>
+        <!-- Features Container -->
+        <div class="features" id="featuresContainer">
+            <!-- Will be filled by JavaScript -->
+        </div>
 
         <!-- Pricing Table -->
         <div class="pricing-table" id="pricingTable">
@@ -1009,23 +995,20 @@ const pricingData = {
         '30 DAYS': '$70',
         '365 DAYS': '$130'
     },
-    'VANISH': {
-        '1 DAY': '$10',
-        '7 DAYS': '$30',
-        '30 DAYS': '$70',
-        '365 DAYS': '$130'
+    'CS2 CHEAT': {
+        '1 DAY': '$3',
+        '7 DAYS': '$14',
+        '30 DAYS': '$28'
     },
-    'TRACE': {
-        '1 DAY': '$10',
-        '7 DAYS': '$30',
-        '30 DAYS': '$70',
-        '365 DAYS': '$130'
+    'CS2 UNLOCK ALL': {
+        '1 DAY': '$3',
+        '7 DAYS': '$14',
+        '30 DAYS': '$28'
     },
-    'INTERNAL': {
-        '1 DAY': '$20',
-        '7 DAYS': '$50',
-        '30 DAYS': '$120',
-        '365 DAYS': '$250'
+    'INTERNAL VALORANT': {
+        '1 MONTH': '$50',
+        '3 MONTHS': '$100',
+        '6 MONTHS': '$150'
     },
     'VGK EMULATOR': {
         '1 DAY': '$30',
@@ -1041,22 +1024,105 @@ const pricingData = {
     }
 };
 
+// Feature data for different products
+const featureData = {
+    'CS2 UNLOCK ALL': {
+        description: 'You can view the features of CS2 UNLOCK ALL on our website.',
+        features: ['Unlock all skins in the game']
+    },
+    'INTERNAL VALORANT': {
+        description: 'You can view the features of INTERNAL VALORANT on our website.',
+        features: [
+            'Customizable recoil system',
+            'Save Config',
+            'Multiple color',
+            'Customizable x&y speed',
+            'Color tolerance',
+            'Custom Fov',
+            'Hide application',
+            'Custom Keybind',
+            'Curved aim'
+        ]
+    },
+    'DEFAULT': {
+        description: 'You can view the features of <span id="featureProductName">CS2 External ESP</span> on our website.',
+        features: {
+            'ESP Features': [
+                'Box & Skeleton ESP',
+                'Health, Distance, and Rainbow color options',
+                'Hide application',
+                'Tracer lines',
+                'Information display options',
+                'Custom health bar',
+                'Bomb timer',
+                'Spectator list',
+                'Sniper crosshair',
+                'Ability to hide overlay from screen capture'
+            ],
+            'Triggerbot Features': [
+                'All keybind support',
+                'Custom delay setting',
+                'Custom duration setting',
+                'Team check'
+            ],
+            'General Features': [
+                '3 different profile options',
+                'Easy-to-use web UI',
+                'Private Kernel Mode driver',
+                'Easy setup'
+            ]
+        }
+    }
+};
+
 function openModal(productName) {
     const modal = document.getElementById('productModal');
     const modalProductName = document.getElementById('modalProductName');
-    const featureProductName = document.getElementById('featureProductName');
+    const featuresContainer = document.getElementById('featuresContainer');
     const pricingTable = document.getElementById('pricingTable');
     
     modalProductName.textContent = productName;
-    featureProductName.textContent = productName;
+    
+    // Generate features HTML based on product
+    let featuresHTML = '<h4>FEATURES</h4>';
+    
+    if (productName === 'CS2 UNLOCK ALL') {
+        featuresHTML += `<p>${featureData['CS2 UNLOCK ALL'].description}</p>`;
+        featuresHTML += '<ul>';
+        featureData['CS2 UNLOCK ALL'].features.forEach(feature => {
+            featuresHTML += `<li>${feature}</li>`;
+        });
+        featuresHTML += '</ul>';
+    } 
+    else if (productName === 'INTERNAL VALORANT') {
+        featuresHTML += `<p>${featureData['INTERNAL VALORANT'].description}</p>`;
+        featuresHTML += '<ul>';
+        featureData['INTERNAL VALORANT'].features.forEach(feature => {
+            featuresHTML += `<li>${feature}</li>`;
+        });
+        featuresHTML += '</ul>';
+    }
+    else {
+        featuresHTML += `<p>${featureData['DEFAULT'].description.replace('CS2 External ESP', productName)}</p>`;
+        
+        for (const [category, features] of Object.entries(featureData['DEFAULT'].features)) {
+            featuresHTML += `<h5>${category}</h5>`;
+            featuresHTML += '<ul>';
+            features.forEach(feature => {
+                featuresHTML += `<li>${feature}</li>`;
+            });
+            featuresHTML += '</ul>';
+        }
+    }
+    
+    featuresContainer.innerHTML = featuresHTML;
     
     // Generate pricing table HTML
-    const prices = pricingData[productName] || pricingData['VANISH'];
+    const prices = pricingData[productName] || pricingData['CS2 CHEAT'];
     let pricingHTML = '';
-    let index = 0;
     
     for (const [duration, price] of Object.entries(prices)) {
-        const isBestValue = duration === '30 DAYS';
+        const isBestValue = duration.includes('30') || duration.includes('3 MONTHS');
         const rowClass = isBestValue ? 'pricing-row best-value' : 'pricing-row';
         
         pricingHTML += `
@@ -1065,7 +1131,6 @@ function openModal(productName) {
                 <span class="pricing-price">${price}</span>
             </div>
         `;
-        index++;
     }
     
     pricingTable.innerHTML = pricingHTML;
@@ -1135,5 +1200,3 @@ document.querySelector('.search-box').addEventListener('input', function(e) {
 
 </body>
 </html>
-
-
