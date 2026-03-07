@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA — next‑gen system optimization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafafc;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #1e1e2f;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        h1 {
+            font-size: 5.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            background: linear-gradient(135deg, #1e1e2f 0%, #2d2d44 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0.2em 0 0.1em;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #1e1e2f;
+            margin: 2em 0 0.5em;
+        }
+
+        .eyebrow {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .lead {
+            font-size: 1.3rem;
+            color: #5a5a6e;
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .status-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid #f0f0f3;
+        }
+
+        .status-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 60px -15px rgba(79, 70, 229, 0.2);
+        }
+
+        .status-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #4f46e5;
+            margin-bottom: 1rem;
+        }
+
+        .status-value {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1;
+            color: #1e1e2f;
+            margin-bottom: 1rem;
+        }
+
+        .status-meta {
+            font-size: 1rem;
+            color: #7c7c8a;
+            border-top: 2px solid #f0f0f3;
+            padding-top: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s;
+            border: 1px solid #ffffff;
+        }
+
+        .product-card:hover {
+            border-color: #4f46e5;
+            box-shadow: 0 30px 60px -15px rgba(79, 70, 229, 0.25);
+        }
+
+        .product-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            background: #f0f0f3;
+            color: #4a4a5e;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #1e1e2f;
+        }
+
+        .product-desc {
+            color: #6b6b7e;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn-access {
+            display: inline-flex;
+            align-items: center;
+            background: #1e1e2f;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-access:hover {
+            background: #4f46e5;
+            transform: scale(1.02);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .review-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            color: #2d2d42;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .review-text::before {
+            content: "“";
+            font-size: 2rem;
+            color: #4f46e5;
+            opacity: 0.5;
+            margin-right: 2px;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: #1e1e2f;
+        }
+
+        .review-product {
+            font-size: 0.85rem;
+            color: #8f8f9e;
+            margin-top: 4px;
+        }
+
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            background: #1e1e2f;
+            border-radius: 60px;
+            padding: 50px 40px;
+            margin: 70px 0;
+            color: #ffffff;
+        }
+
+        .stat-item {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #a5b4fc;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 60px;
+            margin: 50px 0;
+        }
+
+        .faq-item {
+            border-bottom: 2px solid #f0f0f3;
+            padding-bottom: 25px;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e1e2f;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "＋";
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #4f46e5;
+        }
+
+        .faq-answer {
+            color: #5a5a70;
+            line-height: 1.7;
+            padding-right: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0 70px;
+            color: #8f8f9e;
+            border-top: 2px solid #f0f0f3;
+            margin-top: 60px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1000px) {
+            .status-grid, .product-grid, .reviews-grid, .stats-banner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 { font-size: 4rem; }
+        }
+
+        @media (max-width: 700px) {
+            .status-grid, .product-grid, .reviews-grid, .stats-banner, .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .container { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="eyebrow">next‑gen system optimization</div>
+        <h1>NOVA</h1>
+        <div class="lead">Intelligent software that tunes your machine to perfection — no bloat, no clutter, just pure performance.</div>
+
+        <h2>Live status</h2>
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-label">optimization engine</div>
+                <div class="status-value">active</div>
+                <div class="status-meta"><span>99.9% uptime</span> <span>updated 2m ago</span></div>
+                <div style="margin-top: 20px; font-weight: 500;">success rate <strong style="color:#4f46e5;">100%</strong></div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">memory optimizer</div>
+                <div class="status-value">2.4 TB</div>
+                <div class="status-meta"><span>freed today</span> <span>127 GB</span></div>
+                <div style="margin-top: 20px; font-weight: 500;">fragmentation <strong style="color:#4f46e5;">0%</strong></div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">system guard</div>
+                <div class="status-value">3,247</div>
+                <div class="status-meta"><span>active sessions</span> <span>0 threats</span></div>
+                <div style="margin-top: 20px; font-weight: 500;">overhead <strong style="color:#4f46e5;">< 1% CPU</strong></div>
+            </div>
+        </div>
+
+        <h2>performance suite</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <span class="product-badge">new</span>
+                <h3>ONECLICK</h3>
+                <div class="product-desc">One‑click cleanup & instant optimization wizard.</div>
+                <a href="#" class="btn-access">access →</a>
+            </div>
+            <div class="product-card">
+                <span class="product-badge">stealth</span>
+                <h3>SHIELD</h3>
+                <div class="product-desc">Advanced privacy cleaner – zero registry traces.</div>
+                <a href="#" class="btn-access">access →</a>
+            </div>
+            <div class="product-card">
+                <span class="product-badge popular">popular</span>
+                <h3>OPTIMUM</h3>
+                <div class="product-desc">Real‑time tuner & performance analyzer.</div>
+                <a href="#" class="btn-access">access →</a>
+            </div>
+            <div class="product-card">
+                <span class="product-badge">premium</span>
+                <h3>DEEP CLEAN</h3>
+                <div class="product-desc">Registry defrag + advanced disk optimizer.</div>
+                <a href="#" class="btn-access">access →</a>
+            </div>
+            <div class="product-card">
+                <span class="product-badge">compat</span>
+                <h3>COMPAT</h3>
+                <div class="product-desc">Legacy driver & software compatibility layer.</div>
+                <a href="#" class="btn-access">access →</a>
+            </div>
+            <div class="product-card">
+                <span class="product-badge">elite</span>
+                <h3>OPTIMUM X</h3>
+                <div class="product-desc">Enterprise‑grade kernel tuning & automation.</div>
+                <a href="#" class="btn-access">access →</a>
+            </div>
+        </div>
+
+        <h2>trusted by enthusiasts</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-text">No registry bloat, no performance loss. Works on every system I've tried.</div>
+                <div class="review-author">Michael T.</div>
+                <div class="review-product">OPTIMUM user</div>
+            </div>
+            <div class="review-card">
+                <div class="review-text">No driver conflicts, no residual files. Runs on Windows 11 flawlessly.</div>
+                <div class="review-author">Sarah K.</div>
+                <div class="review-product">SHIELD user</div>
+            </div>
+            <div class="review-card">
+                <div class="review-text">One click setup, background optimization included. Simple, powerful.</div>
+                <div class="review-author">David R.</div>
+                <div class="review-product">ONECLICK user</div>
+            </div>
+        </div>
+
+        <div class="stats-banner">
+            <div><div class="stat-item">15k+</div><div class="stat-label">active users</div></div>
+            <div><div class="stat-item">99.9%</div><div class="stat-label">uptime</div></div>
+            <div><div class="stat-item">100%</div><div class="stat-label">success rate</div></div>
+            <div><div class="stat-item">24/7</div><div class="stat-label">support</div></div>
+        </div>
+
+        <h2>frequently asked questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">What systems are supported?</div>
+                <div class="faq-answer">Windows 10 & 11 (all versions), both AMD and Intel. Some products have additional requirements listed in the details.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do I purchase?</div>
+                <div class="faq-answer">Click “access” on any product to see pricing. Purchase directly on our secure site – support available 24/7.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is it safe?</div>
+                <div class="faq-answer">All products are thoroughly tested and certified. We continuously update for compatibility and safety.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Refund policy?</div>
+                <div class="faq-answer">Short‑term licenses (1‑7 days) are non‑refundable. Longer licenses may be eligible within 48h – contact support.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Update frequency?</div>
+                <div class="faq-answer">Regular updates + critical fixes within 24h. All updates free during active license.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">If something breaks?</div>
+                <div class="faq-answer">We monitor 24/7 and fix immediately. License holders get downtime compensation (extra days).</div>
+            </div>
+        </div>
+
+        <footer>
+            NOVA performance systems — designed for speed, built for trust
+        </footer>
+    </div>
+</body>
+</html>
