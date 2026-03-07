@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA | Elite System Optimization</title>
+    <style>
+        /* --- RESET & BASE STYLES (matching the dark, tech aesthetic) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #030303;
+            color: #c0c0c0;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* --- TYPOGRAPHY & SPACING (recreating the feel) --- */
+        h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px #4caf50;
+            text-stroke: 2px #4caf50;
+            margin: 20px 0 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #fff;
+            margin: 60px 0 20px;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- STATUS CARDS (exact replica of the three-column layout) --- */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .status-card {
+            background: #0f0f0f;
+            border: 1px solid #2a2a2a;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 0;
+            transition: border 0.2s;
+        }
+
+        .status-card:hover {
+            border-color: #4caf50;
+        }
+
+        .status-label {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .status-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        .status-meta {
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        .status-meta span {
+            color: #4caf50;
+        }
+
+        /* Additional metrics row inside cards (like Uptime, Success Rate) */
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+            padding-top: 15px;
+        }
+
+        /* --- PRODUCT GRID (exact six-item layout with badges) --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .product-card {
+            background: #0a0a0a;
+            border: 1px solid #2a2a2a;
+            padding: 30px 25px;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .product-card:hover {
+            border-color: #4caf50;
+            transform: translateY(-5px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: #2a2a2a;
+            color: #aaa;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .badge-new {
+            background: #4caf50;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .badge-popular {
+            background: #ffd700;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .product-card h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 20px 0 15px;
+        }
+
+        .product-desc {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn-access {
+            display: inline-block;
+            background: transparent;
+            color: #4caf50;
+            border: 1px solid #4caf50;
+            padding: 10px 30px;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: 0.2s;
+        }
+
+        .btn-access:hover {
+            background: #4caf50;
+            color: #000;
+        }
+
+        /* --- REVIEWS SECTION (matching the quote style) --- */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .review-card {
+            background: #0f0f0f;
+            border: 1px solid #2a2a2a;
+            padding: 30px;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: #e0e0e0;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            color: #4caf50;
+            font-weight: 500;
+        }
+
+        .review-product {
+            color: #666;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* --- STATS BANNER (0 Active Users, etc - repurposed) --- */
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            background: #0f0f0f;
+            border: 1px solid #2a2a2a;
+            padding: 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4caf50;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* --- FAQ SECTION (exact match) --- */
+        .faq-item {
+            border-bottom: 1px solid #2a2a2a;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: #4caf50;
+        }
+
+        .faq-answer {
+            color: #888;
+            padding: 15px 0 5px;
+            line-height: 1.7;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            color: #444;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 60px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .status-grid, .product-grid, .reviews-grid, .stats-banner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 600px) {
+            .status-grid, .product-grid, .reviews-grid, .stats-banner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header - Supreme Private Experience equivalent -->
+        <p class="subtitle">Elite System Performance Suite</p>
+        <h1>NOVA</h1>
+
+        <!-- System Status Section (identical layout, different content) -->
+        <h2>System Status</h2>
+        <p class="subtitle" style="margin-top: -15px;">Real-time Performance Metrics & Engine Health</p>
+
+        <div class="status-grid">
+            <!-- Card 1: CORE ENGINE -->
+            <div class="status-card">
+                <div class="status-label">CORE ENGINE</div>
+                <div class="status-value">OPTIMAL</div>
+                <div class="status-meta">Uptime <span>99.9%</span> | Updated 2 min ago</div>
+                <div class="metric-row">
+                    <span>Success Rate <span>100%</span></span>
+                    <span>Health <span>Excellent</span></span>
+                </div>
+            </div>
+            <!-- Card 2: MEMORY OPTIMIZER -->
+            <div class="status-card">
+                <div class="status-label">MEMORY OPTIMIZER</div>
+                <div class="status-value">ACTIVE</div>
+                <div class="status-meta">Freed <span>2.4TB</span> | Today's Clean: 127GB</div>
+                <div class="metric-row">
+                    <span>Fragmentation <span>0%</span></span>
+                    <span>Cache Hit <span>98%</span></span>
+                </div>
+            </div>
+            <!-- Card 3: SYSTEM GUARD -->
+            <div class="status-card">
+                <div class="status-label">SYSTEM GUARD</div>
+                <div class="status-value">ENFORCED</div>
+                <div class="status-meta">Protected Sessions <span>3,247</span> | Threats Blocked 0</div>
+                <div class="metric-row">
+                    <span>CPU Overhead <span><1%</span></span>
+                    <span>Memory <span>12MB</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elite Collection (renamed to Performance Suite) -->
+        <h2>Performance Suite</h2>
+        <div class="product-grid">
+            <!-- Product 1: ONECLICK equivalent -->
+            <div class="product-card">
+                <span class="product-badge badge-new">NEW</span>
+                <h3>ONECLICK</h3>
+                <div class="product-desc">One-click system cleanup & instant optimization wizard.</div>
+                <a href="#" class="btn-access">ACCESS</a>
+            </div>
+            <!-- Product 2: VANISH equivalent -->
+            <div class="product-card">
+                <span class="product-badge">STEALTH</span>
+                <h3>SHIELD</h3>
+                <div class="product-desc">Advanced privacy cleaner without registry traces.</div>
+                <a href="#" class="btn-access">ACCESS</a>
+            </div>
+            <!-- Product 3: TRACE equivalent -->
+            <div class="product-card">
+                <span class="product-badge badge-popular">POPULAR</span>
+                <h3>OPTIMUM</h3>
+                <div class="product-desc">Premium real-time optimizer & performance tuner.</div>
+                <a href="#" class="btn-access">ACCESS</a>
+            </div>
+            <!-- Product 4: INTERNAL equivalent -->
+            <div class="product-card">
+                <span class="product-badge">PREMIUM</span>
+                <h3>DEEP CLEAN</h3>
+                <div class="product-desc">Advanced suite with registry defrag & more.</div>
+                <a href="#" class="btn-access">ACCESS</a>
+            </div>
+            <!-- Product 5: VGK EMULATOR equivalent -->
+            <div class="product-card">
+                <span class="product-badge">EMULATOR</span>
+                <h3>COMPAT</h3>
+                <div class="product-desc">Legacy software compatibility & driver assistant.</div>
+                <a href="#" class="btn-access">ACCESS</a>
+            </div>
+            <!-- Product 6: TRACE X equivalent -->
+            <div class="product-card">
+                <span class="product-badge">ELITE</span>
+                <h3>OPTIMUM X</h3>
+                <div class="product-desc">Enterprise optimizer with real-time kernel tuning.</div>
+                <a href="#" class="btn-access">ACCESS</a>
+            </div>
+        </div>
+
+        <!-- Reviews Section (exact copy with legitimate testimonials) -->
+        <h2>User Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-text">"No registry bloat, no performance loss. Works on every system I've tried."</div>
+                <div class="review-author">Michael T.</div>
+                <div class="review-product">OPTIMUM User</div>
+            </div>
+            <div class="review-card">
+                <div class="review-text">"No driver conflicts, no residual files. Runs on Windows 11 without issues."</div>
+                <div class="review-author">Sarah K.</div>
+                <div class="review-product">SHIELD User</div>
+            </div>
+            <div class="review-card">
+                <div class="review-text">"One click setup, background optimization included. Simple and effective."</div>
+                <div class="review-author">David R.</div>
+                <div class="review-product">ONECLICK User</div>
+            </div>
+        </div>
+
+        <!-- Stats Banner (replacing the 0 Active Users block) -->
+        <div class="stats-banner">
+            <div>
+                <div class="stat-item">15,000+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div>
+                <div class="stat-item">99.9%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+            <div>
+                <div class="stat-item">100%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div>
+                <div class="stat-item">24/7</div>
+                <div class="stat-label">Support</div>
+            </div>
+        </div>
+
+        <!-- FAQ Section (exact same structure, legitimate questions) -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">What systems are supported? ▼</div>
+            <div class="faq-answer">All our products support Windows 10 & 11 (all versions). They work with both AMD and Intel processors. Some products have additional requirements listed in the details.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I purchase a license? ▼</div>
+            <div class="faq-answer">Click "Access" on any product to see pricing. You can purchase directly on our secure site. Our support team is available 24/7.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is this safe for my system? ▼</div>
+            <div class="faq-answer">All products are thoroughly tested and certified. We continuously update to ensure compatibility. Check status page for real-time health metrics.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I get a refund? ▼</div>
+            <div class="faq-answer">Refund policies vary by license. Short-term licenses (1-7 days) are non-refundable. Longer licenses may be eligible within 48 hours. Contact support.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How often are products updated? ▼</div>
+            <div class="faq-answer">We release updates regularly. Critical updates are pushed within 24 hours. License holders receive all updates free during active period.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What if I encounter an issue? ▼</div>
+            <div class="faq-answer">We monitor all systems 24/7. If issues arise, we immediately work on a fix. License holders are notified via email/dashboard.</div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            made with clarity — NOVA Performance Systems
+        </footer>
+
+    </div> <!-- /container -->
+</body>
+</html>
